@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { Sun, Cloud, CloudRain, CloudSnow, CloudLightning, Loader } from 'lucide-react'
 
-const API_KEY = 'NEXT_WEATHER_API_KEY' // Replace with your actual API key
+const API_KEY = process.env.NEXT_PUBLIC_WEATHER_PASS; // Replace with your actual API key
 
 interface WeatherData {
   main: {

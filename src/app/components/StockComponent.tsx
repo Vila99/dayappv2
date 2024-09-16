@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { ArrowUp, ArrowDown, Search, Trash2, Loader } from 'lucide-react'
 
-const API_KEY = "NEXT_STOCK_API_KEY" // Replace with your actual API key
+const API_KEY = process.env.NEXT_PUBLIC_STOCK_API_KEY; // Replace with your actual API key
 
 interface StockData {
   symbol: string;
