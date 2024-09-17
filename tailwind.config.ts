@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        'ticker': 'ticker 60s linear infinite',
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

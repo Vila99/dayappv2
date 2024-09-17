@@ -4,6 +4,8 @@ import TareasComponent from './components/TareasComponent'
 import StockComponent from './components/StockComponent'
 import QuoteComponent from './components/QuoteComponent'
 import WeatherComponent from './components/WeatherComponent'
+import ChatPopup from './components/ChatPopup'
+import NewsTicker from './components/NewsTicker'
 
 export default function Home() {
   return (
@@ -13,6 +15,7 @@ export default function Home() {
           <h1 className="text-2xl font-bold">My Daily App</h1>
         </div>
       </nav>
+      <NewsTicker />
       <div className="container mx-auto p-4 sm:p-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="space-y-8">
@@ -23,6 +26,7 @@ export default function Home() {
           <TareasComponent />
         </div>
       </div>
+      <ChatPopup />
     </div>
   )
 }
