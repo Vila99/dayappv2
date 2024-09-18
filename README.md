@@ -1,8 +1,6 @@
 # My Daily App 🚀
 
-![My Daily App](https://your-image-url-here.com/my-daily-app-screenshot.png)
-
-## [Live Demo](https://your-vercel-deployment-url.vercel.app) 🌐
+## [Live Demo](https://myappv2-red.vercel.app) 🌐
 
 ## Project Overview 📋
 
