@@ -1,13 +1,24 @@
 "use client"
 
+import { useState } from 'react'
+import dynamic from 'next/dynamic'
+import LandingPage from './components/LandingPage'
 import TareasComponent from './components/TareasComponent'
 import StockComponent from './components/StockComponent'
 import QuoteComponent from './components/QuoteComponent'
 import WeatherComponent from './components/WeatherComponent'
-import ChatPopup from './components/ChatPopup'
 import NewsTicker from './components/NewsTicker'
 
+const DynamicChatPopup = dynamic(() => import('./components/ChatPopup'), { ssr: false })
+const DynamicSpotifyPlayer = dynamic(() => import('./components/SpotifyPlayer'), { ssr: false })
+
 export default function Home() {
+  const [showDashboard, setShowDashboard] = useState(false)
+
+  if (!showDashboard) {
+    return <LandingPage onStart={() => setShowDashboard(true)} />
+  }
+
   return (
     <div className="min-h-screen bg-gray-100">
       <nav className="bg-gradient-to-r from-purple-500 to-indigo-600 p-4 text-white">
@@ -22,11 +33,12 @@ export default function Home() {
             <WeatherComponent />
             <StockComponent />
             <QuoteComponent />
+            <DynamicSpotifyPlayer />
           </div>
           <TareasComponent />
         </div>
       </div>
-      <ChatPopup />
+      <DynamicChatPopup />
     </div>
   )
 }

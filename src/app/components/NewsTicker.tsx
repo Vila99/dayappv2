@@ -2,11 +2,24 @@
 
 import { useState, useEffect } from 'react'
 
-const API_KEY = process.env.NEXT_PUBLIC_GUARDIAN_API_KEY || 'test';
+const API_KEY = process.env.NEXT_PUBLIC_GUARDIAN_API_KEY;
 
 interface NewsItem {
   title: string;
   url: string;
+}
+
+interface GuardianArticle {
+  fields: {
+    headline: string;
+  };
+  webUrl: string;
+}
+
+interface GuardianResponse {
+  response: {
+    results: GuardianArticle[];
+  };
 }
 
 export default function NewsTicker() {
@@ -25,10 +38,10 @@ export default function NewsTicker() {
         if (!response.ok) {
           throw new Error(`Failed to fetch news: ${response.status}`)
         }
-        const data = await response.json()
+        const data: GuardianResponse = await response.json()
         console.log('Received data:', data)
         if (data.response && data.response.results) {
-          const newsItems = data.response.results.map((article: any) => ({
+          const newsItems = data.response.results.map((article: GuardianArticle) => ({
             title: article.fields.headline,
             url: article.webUrl
           }))
@@ -80,9 +93,9 @@ export default function NewsTicker() {
       <div className="news-label absolute left-0 top-0 bottom-0 bg-red-600 text-white px-4 py-2 flex items-center font-bold z-10">
         NEWS:
       </div>
-      <div className="animate-ticker inline-block whitespace-nowrap pl-24"> {/* Added padding-left to make space for the NEWS label */}
+      <div className="animate-ticker inline-block whitespace-nowrap pl-24">
         {renderNews()}
-        {renderNews()} {/* Duplicamos el contenido para crear un efecto continuo */}
+        {renderNews()}
       </div>
     </div>
   )
