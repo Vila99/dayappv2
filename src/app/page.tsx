@@ -23,7 +23,7 @@ export default function Home() {
     <div className="min-h-screen bg-gray-100">
       <nav className="bg-gradient-to-r from-purple-500 to-indigo-600 p-4 text-white">
         <div className="container mx-auto">
-          <h1 className="text-2xl font-bold">My Daily App</h1>
+          <h1 className="text-2xl font-bold text-center">MYAPP</h1>
         </div>
       </nav>
       <NewsTicker />

@@ -19,7 +19,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        Welcome to My Daily App
+        Welcome to MYAPP
       </motion.h1>
       
       <motion.p 
